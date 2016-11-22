@@ -1,0 +1,6 @@
+#!/bin/bash
+git pull
+git add --all
+MESSAGE=$(curl http://whatthecommit.com/index.txt)
+git commit --all -m "$MESSAGE"
+git push
