@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+  base:
+    image: lowet84/lizardfs-base
+    build: build/base
+
+  master:
+    image: lowet84/lizardfs-master
+    build: build/master
+    ports:
+    - 9419:9419
+    - 9420:9420
+    - 9421:9421
+
+  cgi:
+    image: lowet84/lizardfs-cgi
+    build: build/cgi
+    ports:
+    - 9425:9425
+    environment:
+    - MFSMASTER="home.test"
