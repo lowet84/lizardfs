@@ -19,4 +19,18 @@ services:
     ports:
     - 9425:9425
     environment:
-    - MFSMASTER="home.test"
+    - MFSMASTER=home.test
+  
+  chunk:
+    image: lowet84/lizardfs-chunk
+    build: build/chunk
+    environment:
+    - MFSMASTER=home.test
+    - NODEIP=home.test
+    volumes:
+    - mfschunk:/mnt
+    ports:
+    - 9422:9422
+
+volumes:
+  mfschunk:
