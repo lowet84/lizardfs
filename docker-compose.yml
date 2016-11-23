@@ -6,6 +6,8 @@ services:
     restart: always
     build: build/master
     network_mode: "host"
+    volumes:
+    - mfsmaster:/var/lib/mfs
     ports:
     - 9419:9419
     - 9420:9420
@@ -35,3 +37,4 @@ services:
 
 volumes:
   mfschunk:
+  mfsmaster:
