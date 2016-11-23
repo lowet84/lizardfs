@@ -8,6 +8,7 @@ services:
   master:
     image: lowet84/lizardfs-master
     build: build/master
+    network_mode: "host"
     ports:
     - 9419:9419
     - 9420:9420
@@ -16,6 +17,7 @@ services:
   cgi:
     image: lowet84/lizardfs-cgi
     build: build/cgi
+    network_mode: "host"
     ports:
     - 9425:9425
     environment:
@@ -24,9 +26,9 @@ services:
   chunk:
     image: lowet84/lizardfs-chunk
     build: build/chunk
+    network_mode: "host"
     environment:
     - MFSMASTER=home.test
-    - NODEIP=home.test
     volumes:
     - mfschunk:/mnt
     ports:
