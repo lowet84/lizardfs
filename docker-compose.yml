@@ -1,12 +1,9 @@
 version: '2'
 
 services:
-  base:
-    image: lowet84/lizardfs-base
-    build: build/base
-
   master:
     image: lowet84/lizardfs-master
+    restart: always
     build: build/master
     network_mode: "host"
     ports:
@@ -17,6 +14,7 @@ services:
   cgi:
     image: lowet84/lizardfs-cgi
     build: build/cgi
+    restart: always
     network_mode: "host"
     ports:
     - 9425:9425
@@ -26,6 +24,7 @@ services:
   chunk:
     image: lowet84/lizardfs-chunk
     build: build/chunk
+    restart: always
     network_mode: "host"
     environment:
     - MFSMASTER=home.test
