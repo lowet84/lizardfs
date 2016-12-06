@@ -13,6 +13,18 @@ services:
     - 9420:9420
     - 9421:9421
 
+  shadow:
+    image: lowet84/lizardfs-shadow
+    restart: always
+    build: build/shadow
+    network_mode: "host"
+    volumes:
+    - mfsshadow:/var/lib/mfs
+#    ports:
+#    - 9419:9419
+#    - 9420:9420
+#    - 9421:9421
+
   cgi:
     image: lowet84/lizardfs-cgi
     build: build/cgi
@@ -21,7 +33,7 @@ services:
     ports:
     - 9425:9425
     environment:
-    - MFSMASTER=home.test
+    - MFSMASTER=home.kube
   
   chunk:
     image: lowet84/lizardfs-chunk
@@ -29,7 +41,7 @@ services:
     restart: always
     network_mode: "host"
     environment:
-    - MFSMASTER=home.test
+    - MFSMASTER=home.kube
     volumes:
     - mfschunk:/mnt
     ports:
@@ -38,3 +50,4 @@ services:
 volumes:
   mfschunk:
   mfsmaster:
+  mfsshadow:
