@@ -11,8 +11,8 @@ RUN mkdir -p /var/lib/lizardfs && chown lizardfs:lizardfs /var/lib/lizardfs
 RUN chown lizardfs:lizardfs /mnt
 
 ADD files/lizardfs-chunkserver /etc/default/lizardfs-chunkserver
-ADD files/mfschunkserver.cfg /etc/mfs/mfschunkserver.cfg.base
-ADD files/mfshdd.cfg /etc/mfs/mfshdd.cfg
+ADD files/mfschunkserver.cfg /etc/lizardfs/mfschunkserver.cfg.base
+ADD files/mfshdd.cfg /etc/lizardfs/mfshdd.cfg
 ADD start.sh /start.sh
 
 CMD sh /start.sh

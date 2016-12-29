@@ -8,8 +8,8 @@ RUN apt-get -y autoremove && \
 
 EXPOSE 9419 9420 9421
 ADD files/lizardfs-master /etc/default/lizardfs-master
-ADD files/mfsmaster.cfg /etc/mfs/mfsmaster.cfg
-ADD files/mfsexports.cfg /etc/mfs/mfsexports.cfg
+ADD files/mfsmaster.cfg /etc/lizardfs/mfsmaster.cfg
+ADD files/mfsexports.cfg /etc/lizardfs/mfsexports.cfg
 ADD start.sh /start.sh
 
 RUN mkdir -p /data
