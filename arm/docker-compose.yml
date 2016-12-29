@@ -1,0 +1,53 @@
+version: '2'
+
+services:
+  master:
+    image: lowet84/lizardfs-master-arm
+    restart: always
+    build: build/master
+    network_mode: "host"
+    volumes:
+    - mfsmaster:/var/lib/mfs
+    ports:
+    - 9419:9419
+    - 9420:9420
+    - 9421:9421
+
+  shadow:
+    image: lowet84/lizardfs-shadow-arm
+    restart: always
+    build: build/shadow
+    network_mode: "host"
+    volumes:
+    - mfsshadow:/var/lib/mfs
+#    ports:
+#    - 9419:9419
+#    - 9420:9420
+#    - 9421:9421
+
+  cgi:
+    image: lowet84/lizardfs-cgi-arm
+    build: build/cgi
+    restart: always
+    network_mode: "host"
+    ports:
+    - 9425:9425
+    environment:
+    - MFSMASTER=home.kube
+  
+  chunk:
+    image: lowet84/lizardfs-chunk-arm
+    build: build/chunk
+    restart: always
+    network_mode: "host"
+    environment:
+    - MFSMASTER=home.kube
+    volumes:
+    - mfschunk:/mnt
+    ports:
+    - 9422:9422
+
+volumes:
+  mfschunk:
+  mfsmaster:
+  mfsshadow:
