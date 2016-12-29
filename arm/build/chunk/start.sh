@@ -5,5 +5,5 @@ echo "MASTER_HOST = $MFSMASTER" >> /etc/lizardfs/mfschunkserver.cfg
 #echo "CSSERV_LISTEN_HOST = $NODEIP" >> /etc/lizardfs/mfschunkserver.cfg
 
 cat /etc/lizardfs/mfschunkserver.cfg
-#chown mfs:mfs /mnt
+chown lizardfs:lizardfs /mnt
 mfschunkserver -d
