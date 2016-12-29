@@ -5,6 +5,6 @@ if [ ! -f /var/lib/lizardfs/metadata.mfs ]; then
 fi
 rm /var/lib/lizardfs/metadata.mfs.lock
 
-chown mfs:mfs /var/lib/lizardfs/
+chown lizardfs:lizardfs /var/lib/lizardfs/
 mfsmetarestore -a
 mfsmaster -d start

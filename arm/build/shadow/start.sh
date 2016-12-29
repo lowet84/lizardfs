@@ -1,9 +1,9 @@
 #!/bin/bash
 
-if [ ! -f /var/lib/mfs/metadata.mfs ]; then
-  cp /metadata.mfs.empty /var/lib/mfs/metadata.mfs
+if [ ! -f /var/lib/lizardfs/metadata.mfs ]; then
+  cp /metadata.mfs.empty /var/lib/lizardfs/metadata.mfs
 fi
-rm /var/lib/mfs/metadata.mfs.lock
+rm /var/lib/lizardfs/metadata.mfs.lock
 
-chown mfs:mfs /var/lib/mfs/
+chown lizardfs:lizardfs /var/lizardfs/mfs/
 mfsmaster -d start

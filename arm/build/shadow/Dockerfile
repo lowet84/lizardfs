@@ -12,6 +12,6 @@ ADD files/mfsmaster.cfg /etc/mfs/mfsmaster.cfg
 ADD files/mfsexports.cfg /etc/mfs/mfsexports.cfg
 ADD start.sh /start.sh
 
-RUN cp /var/lib/mfs/metadata.mfs.empty /metadata.mfs.empty
+RUN cp /var/lib/lizardfs/metadata.mfs.empty /metadata.mfs.empty
 #CMD ["mfsmaster", "-d", "start"]
 CMD sh /start.sh

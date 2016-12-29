@@ -7,8 +7,8 @@ RUN apt-get -y autoremove && \
     rm -rf /tmp/*
 EXPOSE 9422
 
-RUN mkdir -p /var/lib/mfs && chown mfs:mfs /var/lib/mfs
-RUN chown mfs:mfs /mnt
+RUN mkdir -p /var/lib/lizardfs && chown lizardfs:lizardfs /var/lib/lizardfs
+RUN chown lizardfs:lizardfs /mnt
 
 ADD files/lizardfs-chunkserver /etc/default/lizardfs-chunkserver
 ADD files/mfschunkserver.cfg /etc/mfs/mfschunkserver.cfg.base
